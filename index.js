@@ -42,6 +42,7 @@ app.post("/login", (req, res) => {
             }
         }
     });
+     connection.end();
 });
 
 //=========================================Get all Ideas =======================================================
@@ -55,6 +56,7 @@ app.get('/ideas', (req, res) => {
             res.send(result);
         }
     });
+     connection.end();
 });
 //=============================================by DESC date===========================================================
 app.get("/sortdate", (req, res) => {
@@ -66,6 +68,7 @@ app.get("/sortdate", (req, res) => {
             res.send(result);
         }
     });
+     connection.end();
 });
 
 //==============================================By DESC id ==========================================================
@@ -76,6 +79,7 @@ app.get("/sortvote", (req, res) => {
         }
         else console.log(err);
     })
+     connection.end();
 })
 
 //================================================Insert all==================================================
@@ -95,7 +99,7 @@ app.post('/ideas', (req, res) => {
                 res.send(result);
             }
         });
-
+ connection.end();
 });
 
 //==============================================Searching Query ================================================
@@ -113,6 +117,7 @@ app.get('/search', function (req, res) {
             res.send(results);
         }
     });
+     connection.end();
 });
 
 app.put("/vote", (req, res) => {
@@ -126,6 +131,7 @@ app.put("/vote", (req, res) => {
         }
         res.send(result);
     })
+     connection.end();
 });
 
 app.put("/liked",(req,res)=>{
@@ -137,6 +143,7 @@ app.put("/liked",(req,res)=>{
         }
         res.send(result);
    })
+     connection.end();
 });
 
 app.put("/disliked", (req, res) => {
@@ -156,6 +163,7 @@ app.put("/disliked", (req, res) => {
       }
       res.send(result);
     });
+     connection.end();
   });
 
 app.listen(5000, () => {
